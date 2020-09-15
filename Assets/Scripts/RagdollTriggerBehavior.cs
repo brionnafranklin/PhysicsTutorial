@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class RagdollTriggerBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter(Collider other)
     {
-        
+        RagdollBehavior ragdoll = other.GetComponentInParent<RagdollBehavior>();
+        if (ragdoll != null)
+            ragdoll.ragdollEnabled = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

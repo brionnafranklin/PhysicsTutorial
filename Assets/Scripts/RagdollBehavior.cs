@@ -6,6 +6,7 @@ using UnityEngine;
 public class RagdollBehavior : MonoBehaviour
 {
     private Animator animator = null;
+    private CharacterController controller = null;
     public List<Rigidbody> rigidbodies = new List<Rigidbody>();
     public bool ragdollEnabled
     {
@@ -13,6 +14,7 @@ public class RagdollBehavior : MonoBehaviour
         set
         {
             animator.enabled = !value;
+            controller.enabled = !value;
             foreach (Rigidbody r in rigidbodies)
                 r.isKinematic = !value;
         }
@@ -21,7 +23,7 @@ public class RagdollBehavior : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        foreach (Rigidbody r in rigidbodies)
-            ragdollEnabled = true;
+        controller = GetComponent<CharacterController>();
+            ragdollEnabled = false;
     }
 }
