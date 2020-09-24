@@ -18,11 +18,13 @@ public class CannonBallBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown && _canFire)
-        {
-            _rigidbody.isKinematic = false;
-            _rigidbody.AddForce(transform.forward * forceOnFire);
-            _canFire = false;
-        }
+
+    }
+
+    public void Fire()
+    {
+        _rigidbody.isKinematic = false;
+        _rigidbody.AddForce(transform.forward * forceOnFire);
+        _canFire = false;
     }
 }

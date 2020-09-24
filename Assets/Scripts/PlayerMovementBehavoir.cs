@@ -35,7 +35,7 @@ public class PlayerMovementBehavoir : MonoBehaviour
                 transform.forward = movement.normalized;
         }
         //animation
-        _animator.SetFloat("Speed", movement.z * speed * Time.deltaTime);
+        _animator.SetFloat("Speed", movement.magnitude * speed);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
